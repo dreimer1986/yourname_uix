@@ -1,5 +1,5 @@
 console.info(
-    `%c  ANIMATED-BACKGROUNDS  %c  version 1.0  %c  by dreimer1986  `,
+    '%c  ANIMATED-BACKGROUNDS  %c  version 1.0  %c  by dreimer1986  ',
     'color: orange; font-weight: bold; background: black',
     'color: white; font-weight: bold; background: dimgray',
     'color: white; font-weight: bold; background: rgb(71, 170, 238)',
@@ -9,12 +9,12 @@ console.info(
 const token_ = "YOURAPIKEY";
 const weatherEntity_ = "weather.forecast_home";
 const videoPath_ = "/local/animated_backgrounds";
-// const videoPath_ = "https://cdn.flixel.com/flixel";
+// const videoPath_ = "https://cdn.flixel.com/flixel"; // Warning!! Below change the video.type back to "video/mp4"
 const weatherControl_ = false;
 const videoSwitchPeriod_ = 180;
 
 // Video file names inside the folder above that will be randomly used as backgrounds
-const filesRandom = ['1.mp4', '2.mp4', '3.mp4', '4.mp4', '5.mp4', '6.mp4', '7.mp4', '8.mp4', '9.mp4', '10.mp4', '11.mp4', '12.mp4', '13.mp4', '14.mp4', '15.mp4', '16.mp4', '17.mp4', '18.mp4', '19.mp4', '20.mp4', '21.mp4', '22.mp4', '23.mp4', '24.mp4', '25.mp4', '26.mp4', '27.mp4', '28.mp4', '29.mp4', '30.mp4', '31.mp4', '32.mp4', '33.mp4', '34.mp4', '35.mp4', '36.mp4', '37.mp4', '38.mp4', '39.mp4', '40.mp4', '41.mp4', '42.mp4', '43.mp4', '44.mp4', '45.mp4', '46.mp4', '47.mp4', '48.mp4', '49.mp4', '50.mp4', '51.mp4', '52.mp4', '53.mp4', '54.mp4', '55.mp4', '56.mp4', '57.mp4', '58.mp4', '59.mp4', '60.mp4', '61.mp4', '62.mp4'];
+const filesRandom = ['1.webm', '2.webm', '3.webm', '4.webm', '5.webm', '6.webm', '7.webm', '8.webm', '9.webm', '10.webm', '11.webm', '12.webm', '13.webm', '14.webm', '15.webm', '16.webm', '17.webm', '18.webm', '19.webm', '20.webm', '21.webm', '22.webm', '23.webm', '24.webm', '25.webm', '26.webm', '27.webm', '28.webm', '29.webm', '30.webm', '31.webm', '32.webm', '33.webm', '34.webm', '35.webm', '36.webm', '37.webm', '38.webm', '39.webm', '40.webm', '41.webm', '42.webm', '43.webm', '44.webm', '45.webm', '46.webm', '47.webm', '48.webm', '49.webm', '50.webm', '51.webm', '52.webm', '53.webm', '54.webm', '55.webm', '56.webm', '57.webm', '58.webm', '59.webm', '60.webm', '61.webm', '62.webm', '63.webm', '64.webm', '65.webm', '66.webm', '67.webm', '68.webm', '69.webm', '70.webm', '71.webm', '72.webm', '73.webm', '74.webm', '75.webm', '76.webm', '77.webm', '78.webm', '79.webm', '80.webm', '81.webm', '82.webm', '83.webm'];
 
 // Video file names used from flixel just like Villhellm's addin did
 const filesClearnight = ['x9dr8caygivq5secll7i.hd.mp4', 'v26zyfd6yf0r33s46vpe.hd.mp4', 'ypy8bw9fgw1zv2b4htp2.hd.mp4', 'rosz2gi676xhkiw1ut6i.hd.mp4', 'x5rxll400y2um2xe677c.hd.mp4'];
@@ -39,7 +39,7 @@ const lowPowerMode = false;
 
 // Settings for forcing specific backgrounds on specific page
 const eventPageName = "wallbox";
-const filesEventPage = ['ch1.mp4', 'ch2.mp4'];
+const filesEventPage = ['ch1.webm', 'ch2.webm'];
 
 // HERE is the magic happening, you don't have to change anything here. (Unless you want to :P)
 
@@ -112,7 +112,8 @@ video.loop = true;
 video.muted = true;
 video.playsInline = true;
 video.src = videoPath_+"/"+fileList_[i];
-video.type = "video/mp4";
+// video.type = "video/mp4";
+video.type = "video/webm";
 
 // Insert video background
 document.querySelector("body").insertBefore(video, document.querySelector("body").firstChild);
