@@ -48,6 +48,8 @@ Create it when none exists yet.
 ### <a name="activate_transparent_sidebar"></a>Activate transparent Sidebar and animated Background support
 !! This section is needed regardless of the installation method used !!
 
+**Get the files mentioned below from here: https://github.com/dreimer1986/ha_animated_backgrounds**
+
 1. styles.js and videoBackground.css must be in `www/` folder
 2. Go to the Dashboard Resources Settings
 3. Add a new JavaScript-Module and type in: `/local/styles.js?v=1`
