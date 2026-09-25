@@ -117,6 +117,12 @@ Your Name. (UIX):
   liquid-glass-background: "linear-gradient(135deg,rgba(255,255,255,.08),rgba(16,12,42,.22))"
   liquid-glass-shadow: "inset 0 1px 0 rgba(255,255,255,.48),inset 1px 0 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(180,165,240,.22),0 12px 30px rgba(0,0,0,.24)"
   liquid-glass-dialogs: "1"
+  liquid-glass-sidebar: "1"
+  liquid-glass-sidebar-strength: "54"
+  liquid-glass-sidebar-bevel: "24"
+  liquid-glass-sidebar-blur: "1.5"
+  liquid-glass-sidebar-radius: "22px"
+  liquid-glass-sidebar-background: "linear-gradient(135deg,rgba(255,255,255,.14),rgba(16,12,42,.16))"
 
   # Fixes text solor of selection context menus and the darker cards inside settings menu.
   uix-top-app-bar-fixed: |
@@ -149,13 +155,21 @@ Your Name. (UIX):
         --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
         --sidebar-background-color: rgba(20, 26, 50, 0.5) !important;
       }
-  # Renders the sidebar with more transparency to allow the effect of singlebuttons instead of one big line of color with text in it.
+  # Individual glass pills when the module is active, original card fill as fallback.
   uix-sidebar: |
-    paper-icon-item[role=option], paper-icon-item[aria-role=option], ha-md-list-item, ha-list-item-button {
+    :is(paper-icon-item[role=option], paper-icon-item[aria-role=option], ha-md-list-item, ha-list-item-button):not([data-ha-liquid-glass="sidebar"]) {
       background: var(--ha-card-background) !important;
     }
     :host {
       --sidebar-background-color: transparent !important;
+      --sidebar-menu-button-background-color: transparent !important;
+    }
+    /* Keep the video visible to each pill; preserve HA layout and hit targets. */
+    .menu {
+      background: transparent !important;
+    }
+    [data-ha-liquid-glass="sidebar"].selected::before {
+      border-radius: inherit !important;
     }
   # Removes the extra darkness in the background of the settings menu deeper levels and fixes the too bright top bar.
   uix-config-yaml: |
