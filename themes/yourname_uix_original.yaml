@@ -106,6 +106,17 @@ Your Name. (UIX):
   wa-color-brand-fill-loud: "rgba(70, 80, 125, 0.5)"
   wa-color-brand-fill-normal: "rgba(70, 90, 99, 0.5)"
   wa-color-brand-fill-quiet: "rgba(70, 90, 99, 0.5)"
+  ### Liquid Glass ###
+  liquid-glass-enabled: "1"
+  liquid-glass-mobile: "1"
+  liquid-glass-strength: "110"
+  liquid-glass-bevel: "64"
+  liquid-glass-blur: "0"
+  liquid-glass-frost: "0"
+  liquid-glass-profile: "lens"
+  liquid-glass-background: "linear-gradient(135deg,rgba(255,255,255,.08),rgba(16,12,42,.22))"
+  liquid-glass-shadow: "inset 0 1px 0 rgba(255,255,255,.48),inset 1px 0 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(180,165,240,.22),0 12px 30px rgba(0,0,0,.24)"
+  liquid-glass-dialogs: "1"
 
   # Fixes text solor of selection context menus and the darker cards inside settings menu.
   uix-top-app-bar-fixed: |
