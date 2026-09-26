@@ -189,8 +189,10 @@ Set the resource type to **Stylesheet**. No restart needed. Hard-refresh your br
 
 ## Liquid Glass sidebar (module 0.5.0+)
 
-All three theme variants enable individual glass navigation buttons with `liquid-glass-sidebar: "1"`. Install/update `www/ha-liquid-glass.js` from [ha_animated_backgrounds](https://github.com/dreimer1986/ha_animated_backgrounds), use resource URL `/local/ha-liquid-glass.js?v=0.5.0`, update the theme YAML and reload themes and the frontend. Load the module using the existing `frontend.extra_module_url` list to cover the sidebar on all HA pages.
+All three theme variants enable individual glass navigation buttons with `liquid-glass-sidebar: "1"`. Install/update `www/ha-liquid-glass.js` from [ha_animated_backgrounds](https://github.com/dreimer1986/ha_animated_backgrounds), use resource URL `/local/ha-liquid-glass.js?v=0.6.0`, update the theme YAML and reload themes and the frontend. Load the module using the existing `frontend.extra_module_url` list to cover the sidebar on all HA pages.
 
 Sidebar defaults: strength 54, bevel 24, blur 1.5, radius 22px. These use `liquid-glass-sidebar-strength`, `liquid-glass-sidebar-bevel`, `liquid-glass-sidebar-blur` and `liquid-glass-sidebar-radius`; background and shadow are independently configurable too. The ordinary card settings remain unchanged. UIX leaves active glass fills to the module and restores the original card fill when it is disabled. Set `liquid-glass-sidebar: "0"` to opt out.
 
 The script/theme interaction was checked locally with all three UIX styles. The earlier glass module was confirmed working by the user in Android Chrome and the official HA app; the new sidebar still needs a device check.
+
+For the startup/navigation improvements, update the animated-background module to `/local/styles.js?v=1.6.0` as well as glass 0.6.0. The existing theme YAML and glass parameters need no changes.

@@ -367,11 +367,11 @@ Your Name. - Kataware-doki (UIX):
     }
     :host {
       --sidebar-background-color: transparent !important;
-      --sidebar-menu-button-background-color: transparent !important;
+      --sidebar-menu-button-background-color: var(--app-header-background-color) !important;
     }
-    /* Keep the video visible to each pill; preserve HA layout and hit targets. */
+    /* Match the top bar while keeping the sidebar behind the glass pills transparent. */
     .menu {
-      background: transparent !important;
+      background: var(--app-header-background-color) !important;
     }
     [data-ha-liquid-glass="sidebar"].selected::before {
       border-radius: inherit !important;
@@ -800,11 +800,11 @@ Your Name. - Tiamat (UIX):
     }
     :host {
       --sidebar-background-color: transparent !important;
-      --sidebar-menu-button-background-color: transparent !important;
+      --sidebar-menu-button-background-color: var(--app-header-background-color) !important;
     }
-    /* Keep the video visible to each pill; preserve HA layout and hit targets. */
+    /* Match the top bar while keeping the sidebar behind the glass pills transparent. */
     .menu {
-      background: transparent !important;
+      background: var(--app-header-background-color) !important;
     }
     [data-ha-liquid-glass="sidebar"].selected::before {
       border-radius: inherit !important;
