@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47" role="img" aria-label="Exceptional weather">
+  <path d="M23.5 5 44 40H3Z" fill="#f9c74f" stroke="#d99b21" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M23.5 17v11" stroke="#30343b" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="23.5" cy="34" r="2.2" fill="#30343b"/>
+</svg>
