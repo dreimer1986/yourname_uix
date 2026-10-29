@@ -58,6 +58,7 @@ Your Name. - Kataware-doki (UIX):
 
   # ── 4. Lovelace Background ────────────────────────────────────
   lovelace-background: transparent
+  ha-panel-background: transparent # HA 2026.11+: panel layer above animated backgrounds
 
   # ── 5. Global Color Tokens ────────────────────────────────────
   primary-color: "#B48FFF"
@@ -477,6 +478,7 @@ Your Name. - Tiamat (UIX):
 
   # ── 4. Lovelace Background ────────────────────────────────────
   lovelace-background: transparent
+  ha-panel-background: transparent # HA 2026.11+: panel layer above animated backgrounds
 
   # ── 5. Global Color Tokens ────────────────────────────────────
   # Electric blue primary — vivid, cold, luminous

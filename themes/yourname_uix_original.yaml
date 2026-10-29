@@ -7,6 +7,7 @@ Your Name. (UIX):
   header-height: 40px
   ### Main Interface Colors ###
   lovelace-background: transparent #center / cover no-repeat url("/local/backgrounds/yourname.jpg") fixed
+  ha-panel-background: transparent # HA 2026.11+: panel layer above animated backgrounds
   app-header-background-color: "rgba(20, 26, 50, 0.5)" #141A32
   card-background-color: var(--ha-card-background) #rgba(0, 0, 0, 0.5)
   primary-color: "#007AFF"
