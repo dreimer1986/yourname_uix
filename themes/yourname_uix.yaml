@@ -208,7 +208,8 @@ Your Name. - Kataware-doki (UIX):
 
   # ── 19. Modern HA Color API ───────────────────────────────────
   # ha-color-neutral-95: "#060714"
-  wa-color-surface-default: "#07081C"
+  wa-color-surface-default: "var(--app-header-background-color)" # Dropdown/popover surface
+  wa-color-surface-raised: "var(--app-header-background-color)" # Dropdown list surface
   ha-color-fill-primary-quiet-resting: "rgba(180, 143, 255, 0.16)"
   ha-color-fill-primary-quiet-hover: "rgba(180, 143, 255, 0.26)"
   ha-color-fill-primary-quiet-pressed: "rgba(180, 143, 255, 0.34)"
@@ -216,7 +217,13 @@ Your Name. - Kataware-doki (UIX):
   ha-color-fill-neutral-normal-hover: "#201A4A"
   ha-color-fill-neutral-quiet-resting: "rgba(180, 143, 255, 0.06)"
   ha-color-fill-neutral-quiet-hover: "rgba(180, 143, 255, 0.12)"
-  ha-color-form-background-hover: "#130F35"
+  # HA 2026.11 picker fields and table toolbars use these modern tokens.
+  ha-color-form-background: "var(--app-header-background-color)"
+  ha-color-form-background-hover: "var(--app-header-background-color)"
+  ha-color-form-background-disabled: "rgba(7, 8, 22, 0.38)"
+  ha-dialog-surface-background: "rgba(7, 8, 22, 0.20)" # Light footer over the dialog surface
+  ha-panel-toolbar-background: "rgba(7, 8, 22, 0.40)"
+  ha-data-table-background: "rgba(7, 8, 22, 0.40)" # Avoid double-dark table layers
   ha-color-border-neutral-quiet: "var(--divider-color)"
   ha-color-border-neutral-default: "rgba(180, 143, 255, 0.22)"
   wa-color-surface-border: "var(--divider-color)"
@@ -642,7 +649,8 @@ Your Name. - Tiamat (UIX):
   # ── 19. Modern HA Color API ───────────────────────────────────
   # Blue-mapped equivalents of all ha-color-* / wa-color-* tokens
   # ha-color-neutral-95: "#040C1A"
-  wa-color-surface-default: "#07101E"
+  wa-color-surface-default: "var(--app-header-background-color)" # Dropdown/popover surface
+  wa-color-surface-raised: "var(--app-header-background-color)" # Dropdown list surface
   ha-color-fill-primary-quiet-resting: "rgba(59, 188, 255, 0.14)"
   ha-color-fill-primary-quiet-hover: "rgba(59, 188, 255, 0.24)"
   ha-color-fill-primary-quiet-pressed: "rgba(59, 188, 255, 0.32)"
@@ -650,7 +658,13 @@ Your Name. - Tiamat (UIX):
   ha-color-fill-neutral-normal-hover: "#142840"
   ha-color-fill-neutral-quiet-resting: "rgba(59, 188, 255, 0.06)"
   ha-color-fill-neutral-quiet-hover: "rgba(59, 188, 255, 0.11)"
-  ha-color-form-background-hover: "#0A1C32"
+  # HA 2026.11 picker fields and table toolbars use these modern tokens.
+  ha-color-form-background: "var(--app-header-background-color)"
+  ha-color-form-background-hover: "var(--app-header-background-color)"
+  ha-color-form-background-disabled: "rgba(5, 10, 22, 0.38)"
+  ha-dialog-surface-background: "rgba(5, 10, 22, 0.20)" # Light footer over the dialog surface
+  ha-panel-toolbar-background: "rgba(5, 10, 22, 0.40)"
+  ha-data-table-background: "rgba(5, 10, 22, 0.40)" # Avoid double-dark table layers
   ha-color-border-neutral-quiet: "var(--divider-color)"
   ha-color-border-neutral-default: "rgba(59, 188, 255, 0.22)"
   wa-color-surface-border: "var(--divider-color)"

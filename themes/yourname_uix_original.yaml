@@ -61,6 +61,10 @@ Your Name. (UIX):
   table-row-background-color: var(--primary-background-color)
   table-row-alternative-background-color: var(--primary-background-color)
   data-table-background-color: var(--primary-background-color)
+  # HA 2026.11 table toolbars and group headers.
+  ha-dialog-surface-background: "rgba(20, 26, 50, 0.20)" # Light footer over the dialog surface
+  ha-panel-toolbar-background: "rgba(20, 26, 50, 0.29)"
+  ha-data-table-background: "rgba(20, 26, 50, 0.29)" # Avoid double-dark table layers
   ### Switches ###
   switch-unchecked-button-color: var(--divider-color)
   switch-unchecked-track-color: var(--divider-color)
@@ -94,8 +98,10 @@ Your Name. (UIX):
   ### Edit Mode transparency ###
   app-header-edit-background-color: var(--app-header-background-color)
   ### Additions for 04.2026 ###
-  ha-color-form-background: "rgba(0, 0, 0, 0.5)"
-  ha-color-form-background-hover: "rgba(13, 13, 13, 0.5)"
+  wa-color-surface-default: "var(--app-header-background-color)" # Dropdown/popover surface
+  wa-color-surface-raised: "var(--app-header-background-color)" # Dropdown list surface
+  ha-color-form-background: "var(--app-header-background-color)"
+  ha-color-form-background-hover: "var(--app-header-background-color)"
   ha-color-form-background-disabled: "rgba(37, 37, 37, 0.5)"
   button-color-fill-normal-active: "rgba(70, 90, 99, 0.5)"
   button-color-fill-normal-hover: "rgba(70, 115, 127, 0.5)"
