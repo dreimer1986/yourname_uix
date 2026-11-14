@@ -41,9 +41,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release_branches: master
+          # Existing release tags have no v prefix.
           tag_prefix: ''
           default_bump: patch
-          initial_version: 1.0.3
 
       - name: Create release
         if: steps.tag.outputs.new_tag != ''

@@ -16,7 +16,8 @@
 #   Comet Tiamat amber accent  →  #E8933A
 #   Lake Itomori teal          →  #6BC4D4
 #   Same typography and sizing
-#   Same structural token coverage (20 sections)
+#   Same structural token coverage, with UIX and animated background support
+#   Dark mode declared via `modes: dark`, so HA uses its dark fallbacks
 # ══════════════════════════════════════════════════════════════════
 
 
@@ -39,6 +40,7 @@ Your Name. - Kataware-doki (UIX):
   primary-font-family: "'Plus Jakarta Sans', 'Figtree', system-ui, Arial, sans-serif"
   paper-font-common-base_-_font-family: "var(--primary-font-family)"
   paper-font-common-code_-_font-family: "'JetBrains Mono', 'Consolas', monospace"
+  ha-font-family-code: "'JetBrains Mono', 'Consolas', monospace"
   paper-font-body1_-_font-family: "var(--primary-font-family)"
   paper-font-subhead_-_font-family: "var(--primary-font-family)"
   paper-font-headline_-_font-family: "var(--primary-font-family)"
@@ -64,6 +66,7 @@ Your Name. - Kataware-doki (UIX):
   primary-color: "#B48FFF"
   light-primary-color: "#CEBFFF"
   dark-primary-color: "#8260D8"
+  darker-primary-color: "#6244B8"
   accent-color: "#E8933A"
   light-accent-color: "#F2B06A"
   error-color: "#CF5070"
@@ -76,6 +79,7 @@ Your Name. - Kataware-doki (UIX):
   secondary-background-color: "#0E1030"
   rgb-primary-background-color: "10, 11, 30"
   rgb-secondary-background-color: "14, 16, 48"
+  clear-background-color: "var(--primary-background-color)"
 
   # ── 7. Text ───────────────────────────────────────────────────
   primary-text-color: "#EAE6F8"
@@ -87,6 +91,8 @@ Your Name. - Kataware-doki (UIX):
 
   # ── 8. Dividers & Code ────────────────────────────────────────
   divider-color: "rgba(180, 143, 255, 0.13)"
+  outline-color: "rgba(180, 143, 255, 0.16)"
+  outline-hover-color: "rgba(180, 143, 255, 0.32)"
   markdown-code-background-color: "rgba(10, 8, 26, 0.72)"
 
   # ── 9. Sidebar ────────────────────────────────────────────────
@@ -205,9 +211,9 @@ Your Name. - Kataware-doki (UIX):
   energy-home-color: "#BCB2DE"
   energy-gas-color: "#F2B06A"
   energy-water-color: "#6BC4D4"
+  energy-non-fossil-color: "#64C9A0"
 
   # ── 19. Modern HA Color API ───────────────────────────────────
-  # ha-color-neutral-95: "#060714"
   wa-color-surface-default: "var(--app-header-background-color)" # Dropdown/popover surface
   wa-color-surface-raised: "var(--app-header-background-color)" # Dropdown list surface
   ha-color-fill-primary-quiet-resting: "rgba(180, 143, 255, 0.16)"
@@ -237,7 +243,39 @@ Your Name. - Kataware-doki (UIX):
   mdc-ripple-color: "var(--primary-color)"
   mdc-ripple-press-opacity: "0.11"
 
-  # ── 21. Weather Icons ─────────────────────────────────────────
+  # ── 21. Dark Mode & Core Palettes ─────────────────────────────
+  # Declaring a dark mode makes HA render this theme as a dark theme.
+  # Without it HA falls back to its light defaults for every token
+  # the theme does not set, which shows up as white buttons and fills
+  # on newer UI components. The ramps below replace HA's blue/grey core
+  # palettes, so every derived fill, border and on-colour follows the
+  # lavender twilight instead of the stock Home Assistant blue.
+  modes:
+    dark:
+      ha-color-primary-05: "#181125"
+      ha-color-primary-10: "#2F2446"
+      ha-color-primary-20: "#433461"
+      ha-color-primary-30: "#6A5397"
+      ha-color-primary-40: "#9D7DDE"
+      ha-color-primary-50: "#BF9DFF"
+      ha-color-primary-60: "#CAACFF"
+      ha-color-primary-70: "#D6BEFF"
+      ha-color-primary-80: "#E8D9FF"
+      ha-color-primary-90: "#F4EDFF"
+      ha-color-primary-95: "#FAF6FF"
+      ha-color-neutral-05: "#16121F"
+      ha-color-neutral-10: "#221E2C"
+      ha-color-neutral-20: "#383443"
+      ha-color-neutral-30: "#4C4857"
+      ha-color-neutral-40: "#605C6C"
+      ha-color-neutral-50: "#7C7888"
+      ha-color-neutral-60: "#9B96A7"
+      ha-color-neutral-70: "#B4AFC0"
+      ha-color-neutral-80: "#CFC9DC"
+      ha-color-neutral-90: "#E9E3F6"
+      ha-color-neutral-95: "#F5F1FF"
+
+  # ── 22. Weather Icons ─────────────────────────────────────────
   weather-icon-clear-night: url("/local/icons/clear-night.svg")
   weather-icon-cloudy: url("/local/icons/cloudy.svg")
   weather-icon-fog: url("/local/icons/fog.svg")
@@ -254,31 +292,7 @@ Your Name. - Kataware-doki (UIX):
   weather-icon-windy-variant: url("/local/icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/icons/exceptional.svg")
 
-  # ── 22. Additions for 04.2026 ─────────────────────────────────
-  ## Primary Color ##
-  ha-color-primary-95: "rgba(0, 23, 33, 0.5)"
-  ha-color-primary-90: "rgba(0, 46, 62, 0.5)"
-  ha-color-primary-80: "rgba(0, 65, 86, 0.5)"
-  ha-color-primary-70: "rgba(0, 103, 135, 0.5)"
-  ha-color-primary-60: "rgba(0, 154, 199, 0.5)"
-  ha-color-primary-50: "rgba(24, 188, 242, 0.5)"
-  ha-color-primary-40: "rgba(55, 200, 253, 0.5)"
-  ha-color-primary-30: "rgba(123, 212, 251, 0.5)"
-  ha-color-primary-20: "rgba(185, 230, 252, 0.5)"
-  ha-color-primary-10: "rgba(223, 243, 252, 0.5)"
-  ha-color-primary-05: "rgba(239, 249, 254, 0.5)"
-  ## Neutral Color ##
-  ha-color-neutral-95: "rgba(20, 20, 20, 0.5)"
-  ha-color-neutral-90: "rgba(32, 32, 32, 0.5)"
-  ha-color-neutral-80: "rgba(54, 54, 54, 0.5)"
-  ha-color-neutral-70: "rgba(74, 74, 74, 0.5)"
-  ha-color-neutral-60: "rgba(94, 94, 94, 0.5)"
-  ha-color-neutral-50: "rgba(122, 122, 122, 0.5)"
-  ha-color-neutral-40: "rgba(152, 152, 152, 0.5)"
-  ha-color-neutral-30: "rgba(177, 177, 177, 0.5)"
-  ha-color-neutral-20: "rgba(204, 204, 204, 0.5)"
-  ha-color-neutral-10: "rgba(230, 230, 230, 0.5)"
-  ha-color-neutral-05: "rgba(243, 243, 243, 0.5)"
+  # ── 23. Additions for 04.2026 ─────────────────────────────────
   ## Red Color ##
   ha-color-red-95: "rgba(42, 4, 11, 0.5)"
   ha-color-red-90: "rgba(62, 9, 19, 0.5)"
@@ -465,6 +479,7 @@ Your Name. - Tiamat (UIX):
   primary-font-family: "'Sora', 'DM Sans', system-ui, Arial, sans-serif"
   paper-font-common-base_-_font-family: "var(--primary-font-family)"
   paper-font-common-code_-_font-family: "'JetBrains Mono', 'Consolas', monospace"
+  ha-font-family-code: "'JetBrains Mono', 'Consolas', monospace"
   paper-font-body1_-_font-family: "var(--primary-font-family)"
   paper-font-subhead_-_font-family: "var(--primary-font-family)"
   paper-font-headline_-_font-family: "var(--primary-font-family)"
@@ -492,6 +507,7 @@ Your Name. - Tiamat (UIX):
   primary-color: "#3BBCFF"
   light-primary-color: "#7DD4FF"
   dark-primary-color: "#0096D8"
+  darker-primary-color: "#00699A"
   # Comet amber accent — identical to Kataware-doki (the twin bond)
   accent-color: "#E8933A"
   light-accent-color: "#F2B06A"
@@ -507,6 +523,7 @@ Your Name. - Tiamat (UIX):
   secondary-background-color: "#0B1628"
   rgb-primary-background-color: "7, 16, 30"
   rgb-secondary-background-color: "11, 22, 40"
+  clear-background-color: "var(--primary-background-color)"
 
   # ── 7. Text ───────────────────────────────────────────────────
   # Cool-white with a blue undertone — starlight on dark water
@@ -520,6 +537,8 @@ Your Name. - Tiamat (UIX):
   # ── 8. Dividers & Code ────────────────────────────────────────
   # Electric blue tint — thin but unmistakable
   divider-color: "rgba(59, 188, 255, 0.13)"
+  outline-color: "rgba(59, 188, 255, 0.16)"
+  outline-hover-color: "rgba(59, 188, 255, 0.32)"
   markdown-code-background-color: "rgba(5, 14, 30, 0.74)"
 
   # ── 9. Sidebar ────────────────────────────────────────────────
@@ -645,10 +664,10 @@ Your Name. - Tiamat (UIX):
   energy-home-color: "#90C4E0"
   energy-gas-color: "#F2B06A"
   energy-water-color: "#6BC4D4"
+  energy-non-fossil-color: "#4DCFAA"
 
   # ── 19. Modern HA Color API ───────────────────────────────────
   # Blue-mapped equivalents of all ha-color-* / wa-color-* tokens
-  # ha-color-neutral-95: "#040C1A"
   wa-color-surface-default: "var(--app-header-background-color)" # Dropdown/popover surface
   wa-color-surface-raised: "var(--app-header-background-color)" # Dropdown list surface
   ha-color-fill-primary-quiet-resting: "rgba(59, 188, 255, 0.14)"
@@ -678,7 +697,36 @@ Your Name. - Tiamat (UIX):
   mdc-ripple-color: "var(--primary-color)"
   mdc-ripple-press-opacity: "0.11"
 
-  # ── 21. Weather Icons ─────────────────────────────────────────
+  # ── 21. Dark Mode & Core Palettes ─────────────────────────────
+  # Same mechanism as Kataware-doki: the dark mode switches HA's own
+  # fallbacks to their dark variants, and the ramps recolour every
+  # derived fill, border and on-colour in comet blue and cold navy.
+  modes:
+    dark:
+      ha-color-primary-05: "#011723"
+      ha-color-primary-10: "#042D41"
+      ha-color-primary-20: "#09405B"
+      ha-color-primary-30: "#11658D"
+      ha-color-primary-40: "#2198D1"
+      ha-color-primary-50: "#31B9FD"
+      ha-color-primary-60: "#64C4FF"
+      ha-color-primary-70: "#8FD0FF"
+      ha-color-primary-80: "#C2E4FF"
+      ha-color-primary-90: "#E2F2FF"
+      ha-color-primary-95: "#F1F8FF"
+      ha-color-neutral-05: "#001720"
+      ha-color-neutral-10: "#0F222C"
+      ha-color-neutral-20: "#263943"
+      ha-color-neutral-30: "#3A4D58"
+      ha-color-neutral-40: "#4D616C"
+      ha-color-neutral-50: "#697D89"
+      ha-color-neutral-60: "#879BA8"
+      ha-color-neutral-70: "#9FB4C1"
+      ha-color-neutral-80: "#BACFDD"
+      ha-color-neutral-90: "#D4E9F7"
+      ha-color-neutral-95: "#E7F5FF"
+
+  # ── 22. Weather Icons ─────────────────────────────────────────
   weather-icon-clear-night: url("/local/icons/clear-night.svg")
   weather-icon-cloudy: url("/local/icons/cloudy.svg")
   weather-icon-fog: url("/local/icons/fog.svg")
@@ -695,31 +743,7 @@ Your Name. - Tiamat (UIX):
   weather-icon-windy-variant: url("/local/icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/icons/exceptional.svg")
 
-  # ── 22. Additions for 04.2026 ─────────────────────────────────
-  ## Primary Color ##
-  ha-color-primary-95: "rgba(0, 23, 33, 0.5)"
-  ha-color-primary-90: "rgba(0, 46, 62, 0.5)"
-  ha-color-primary-80: "rgba(0, 65, 86, 0.5)"
-  ha-color-primary-70: "rgba(0, 103, 135, 0.5)"
-  ha-color-primary-60: "rgba(0, 154, 199, 0.5)"
-  ha-color-primary-50: "rgba(24, 188, 242, 0.5)"
-  ha-color-primary-40: "rgba(55, 200, 253, 0.5)"
-  ha-color-primary-30: "rgba(123, 212, 251, 0.5)"
-  ha-color-primary-20: "rgba(185, 230, 252, 0.5)"
-  ha-color-primary-10: "rgba(223, 243, 252, 0.5)"
-  ha-color-primary-05: "rgba(239, 249, 254, 0.5)"
-  ## Neutral Color ##
-  ha-color-neutral-95: "rgba(20, 20, 20, 0.5)"
-  ha-color-neutral-90: "rgba(32, 32, 32, 0.5)"
-  ha-color-neutral-80: "rgba(54, 54, 54, 0.5)"
-  ha-color-neutral-70: "rgba(74, 74, 74, 0.5)"
-  ha-color-neutral-60: "rgba(94, 94, 94, 0.5)"
-  ha-color-neutral-50: "rgba(122, 122, 122, 0.5)"
-  ha-color-neutral-40: "rgba(152, 152, 152, 0.5)"
-  ha-color-neutral-30: "rgba(177, 177, 177, 0.5)"
-  ha-color-neutral-20: "rgba(204, 204, 204, 0.5)"
-  ha-color-neutral-10: "rgba(230, 230, 230, 0.5)"
-  ha-color-neutral-05: "rgba(243, 243, 243, 0.5)"
+  # ── 23. Additions for 04.2026 ─────────────────────────────────
   ## Red Color ##
   ha-color-red-95: "rgba(42, 4, 11, 0.5)"
   ha-color-red-90: "rgba(62, 9, 19, 0.5)"

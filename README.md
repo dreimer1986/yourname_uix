@@ -14,7 +14,7 @@ The older **Your Name. (UIX)** theme is retained separately in `themes/yourname_
 WARNING! UIX custom add-in is strongly recommended!
 
 * [Prerequisite](#prerequisite)
-* [HACS installation](#hacs_installation)
+* [Marketplace installation](#marketplace_installation)
 * [Manual installation](#manual_installation)
 * [Activate transparent Sidebar and animated background support](#activate_transparent_sidebar)
 * [Activate animated Backgrounds](#activate_animations)
@@ -35,9 +35,9 @@ Check if the **themes** folder exists in **config** folder.
 
 Create it when none exists yet.
 
-### <a name="hacs_installation"></a>HACS installation
-1. Add `https://github.com/dreimer1986/yourname_uix` as a custom repository of type **Theme** if it is not already listed in HACS/Marketplace.
-2. Download **Your Name. - UIX & Animated Background Edition**. Keep both YAML files from `themes/`: `yourname_uix.yaml` provides Kataware-doki and Tiamat; `yourname_uix_original.yaml` preserves the older theme separately. Current HACS installations copy both files.
+### <a name="marketplace_installation"></a>Marketplace installation
+1. Add `https://github.com/dreimer1986/yourname_uix` as a custom repository of type **Theme** if it is not already listed in Marketplace (formerly HACS).
+2. Download **Your Name. - UIX & Animated Background Edition**. Keep both YAML files from `themes/`: `yourname_uix.yaml` provides Kataware-doki and Tiamat; `yourname_uix_original.yaml` preserves the older theme separately. Current Marketplace installations copy both files.
 3. Reload themes with the `frontend.reload_themes` action, or restart Home Assistant.
 4. Install the supplemental static files below. Theme installation does not copy the repository's `www/` files into Home Assistant's `www/` directory.
 
@@ -55,7 +55,7 @@ Expected locations:
 
 The theme references `/local/icons/<weather-state>.svg`. All 15 referenced filenames are supplied; `exceptional.svg` is a static warning symbol, the other 14 are the restored weather artwork. The original theme currently uses a transparent background; its optional `/local/backgrounds/yourname.jpg` image is included for users who enable it themselves.
 
-HACS manages the theme YAMLs; these supplemental files require the same copy/merge step when their release assets change. The original theme file and all its existing paths remain unchanged. UIX, fonts, and the background/glass plugin are separate dependencies, not installed by the theme package.
+Marketplace manages the theme YAMLs; these supplemental files require the same copy/merge step when their release assets change. The original theme file and all its existing paths remain unchanged. UIX, fonts, and the background/glass plugin are separate dependencies, not installed by the theme package.
 
 ### <a name="manual_installation"></a>Manual installation
 
@@ -66,7 +66,7 @@ HACS manages the theme YAMLs; these supplemental files require the same copy/mer
 
 ### <a name="activate_transparent_sidebar"></a>Activate transparent Sidebar and animated Background support
 
-Install [Animated Backgrounds & Liquid Glass](https://github.com/dreimer1986/ha_animated_backgrounds#install) separately through HACS as a **Dashboard** repository. It bundles both the background engine and the glass module. Install UIX separately if you use the theme's UIX rules.
+Install [Animated Backgrounds & Liquid Glass](https://github.com/dreimer1986/ha_animated_backgrounds#install) separately through Marketplace as a **Dashboard** repository. It bundles both the background engine and the glass module. Install UIX separately if you use the theme's UIX rules.
 
 Merge the following into your existing configuration (do not create a second `frontend` section):
 
@@ -77,7 +77,7 @@ frontend:
     - /hacsfiles/ha_animated_backgrounds/ha_animated_backgrounds.js
 ```
 
-HACS normally registers the dashboard resource automatically. Restart Home Assistant after changing the global configuration and refresh the browser. Remove old `/local/styles.js?...` and `/local/ha-liquid-glass.js?...` entries from both global modules and dashboard resources when migrating. No separate `videoBackground.css` is needed.
+Marketplace normally registers the dashboard resource automatically. Restart Home Assistant after changing the global configuration and refresh the browser. Remove old `/local/styles.js?...` and `/local/ha-liquid-glass.js?...` entries from both global modules and dashboard resources when migrating. No separate `videoBackground.css` is needed.
 
 ### <a name="activate_animations"></a>Activate animated Backgrounds
 
@@ -90,7 +90,7 @@ Videos are not included. Place your own MP4/WebM files in `/config/www/animated_
 }
 ```
 
-Existing Home Assistant helpers override matching JSON settings. See the [complete configuration reference](https://github.com/dreimer1986/ha_animated_backgrounds#config) for weather entities, helper names, page-specific videos, and video paths. These personal files are outside the HACS-managed plugin folder and survive plugin updates. Refresh the page after editing JSON; do not edit the installed JavaScript.
+Existing Home Assistant helpers override matching JSON settings. See the [complete configuration reference](https://github.com/dreimer1986/ha_animated_backgrounds#config) for weather entities, helper names, page-specific videos, and video paths. These personal files are outside the Marketplace-managed plugin folder and survive plugin updates. Refresh the page after editing JSON; do not edit the installed JavaScript.
 
 ### <a name="enable_the_theme"></a>Enable the theme
 - Open your **Profile** in Home Assistant and select **Your Name. - Kataware-doki (UIX)**, **Your Name. - Tiamat (UIX)**, or the older **Your Name. (UIX)**.
@@ -209,14 +209,14 @@ Set the resource type to **Stylesheet**. No restart needed. Hard-refresh your br
 
 ## Liquid Glass sidebar (module 0.5.0+)
 
-All three theme variants enable individual glass navigation buttons with `liquid-glass-sidebar: "1"`. Install/update the combined HACS module from [ha_animated_backgrounds](https://github.com/dreimer1986/ha_animated_backgrounds), update the theme YAMLs and reload themes and the frontend. Load the module using the existing `frontend.extra_module_url` list to cover the sidebar on all HA pages.
+All three theme variants enable individual glass navigation buttons with `liquid-glass-sidebar: "1"`. Install/update the combined Marketplace module from [ha_animated_backgrounds](https://github.com/dreimer1986/ha_animated_backgrounds), update the theme YAMLs and reload themes and the frontend. Load the module using the existing `frontend.extra_module_url` list to cover the sidebar on all HA pages.
 
 Sidebar defaults: strength 54, bevel 24, blur 1.5, radius 22px. These use `liquid-glass-sidebar-strength`, `liquid-glass-sidebar-bevel`, `liquid-glass-sidebar-blur` and `liquid-glass-sidebar-radius`; background and shadow are independently configurable too. The ordinary card settings remain unchanged. UIX leaves active glass fills to the module and restores the original card fill when it is disabled. Set `liquid-glass-sidebar: "0"` to opt out.
 
 The script/theme interaction was checked locally with all three UIX styles. The earlier glass module was confirmed working by the user in Android Chrome and the official HA app; the new sidebar still needs a device check.
 
-The combined HACS module includes the startup/navigation improvements and Liquid Glass 0.6.0. Existing glass parameters need no changes.
+The combined Marketplace module includes the startup/navigation improvements and Liquid Glass 0.6.0. Existing glass parameters need no changes.
 
 ## Releases
 
-Pushes to `master` run the release workflow, create a version tag and publish a GitHub release with `yourname_uix-assets.zip` for supplemental static files. The workflow can also be started manually. HACS users receive theme updates through the release channel; installing from the default branch is a separate choice. To build the supplemental ZIP locally, run `python scripts/package_assets.py`.
+Pushes to `master` run the release workflow, create a version tag and publish a GitHub release with `yourname_uix-assets.zip` for supplemental static files. The workflow can also be started manually. Marketplace users receive theme updates through the release channel; installing from the default branch is a separate choice. To build the supplemental ZIP locally, run `python scripts/package_assets.py`.
