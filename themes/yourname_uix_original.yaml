@@ -1,0 +1,231 @@
+Your Name. (UIX):
+  dialog-backdrop-filter: blur(5px) #blur(20px)
+  iron-overlay-backdrop-opacity: 1
+  iron-overlay-backdrop-background-color: rgba(0, 0, 0, 0.32)
+  uix-theme: "Your Name. (UIX)"
+  ### Header Height ###
+  header-height: 40px
+  ### Main Interface Colors ###
+  lovelace-background: transparent #center / cover no-repeat url("/local/backgrounds/yourname.jpg") fixed
+  ha-panel-background: transparent # HA 2026.11+: panel layer above animated backgrounds
+  app-header-background-color: "rgba(20, 26, 50, 0.5)" #141A32
+  card-background-color: var(--ha-card-background) #rgba(0, 0, 0, 0.5)
+  primary-color: "#007AFF"
+  light-primary-color: "#4DA3FF"
+  primary-background-color: var(--app-header-background-color)
+  secondary-background-color: "#000000"
+  rgb-secondary-background-color: 0, 0, 0
+  divider-color: "#3B4C8B"
+  markdown-code-background-color: "rgba(30, 39, 71, 0.5)" #1E2747
+  ### Text ###
+  primary-text-color: "#FFFFFF"
+  secondary-text-color: var(--light-primary-color)
+  text-primary-color: var(--primary-text-color)
+  disabled-text-color: "#4F5F78"
+  ### Sidebar Menu ###
+  sidebar-icon-color: "#4F6B95"
+  sidebar-text-color: "#CBD5E4"
+  sidebar-selected-background-color: var(--primary-background-color)
+  sidebar-selected-icon-color: var(--light-primary-color)
+  sidebar-selected-text-color: var(--sidebar-selected-icon-color)
+  sidebar-background-color: transparent #var(--primary-background-color)
+  sidebar-menu-button-background-color: var(--app-header-background-color)
+  ### States and Badges ###
+  state-icon-color: var(--primary-color)
+  state-icon-active-color: "#FBCD41"
+  state-icon-unavailable-color: var(--disabled-text-color)
+  ### Sliders ###
+  paper-slider-knob-color: var(--primary-color)
+  paper-slider-knob-start-color: var(--paper-slider-knob-color)
+  paper-slider-pin-color: var(--paper-slider-knob-color)
+  paper-slider-active-color: var(--paper-slider-knob-color)
+  paper-slider-secondary-color: var(--light-primary-color)
+  ### Labels ###
+  label-badge-background-color: var(--markdown-code-background-color)
+  label-badge-text-color: var(--primary-text-color)
+  label-badge-red: var(--divider-color)
+  label-badge-yellow: "#DCA304"
+  ### Cards ###
+  ha-card-border-radius: '20px'
+  ha-card-background: "rgba(0, 0, 0, 0.5)"
+  paper-card-header-color: var(--primary-text-color)
+  paper-card-background-color: var(--ha-card-background)
+  paper-listbox-background-color: var(--primary-background-color)
+  rgb-card-background-color: var(--rgb-secondary-background-color)
+  ### Toggles ###
+  paper-toggle-button-checked-button-color: "#FCFCFC"
+  paper-toggle-button-checked-bar-color: var(--light-primary-color)
+  paper-toggle-button-unchecked-button-color: var(--paper-toggle-button-checked-button-color)
+  paper-toggle-button-unchecked-bar-color: "#303F79"
+  ### Table row ###
+  table-row-background-color: var(--primary-background-color)
+  table-row-alternative-background-color: var(--primary-background-color)
+  data-table-background-color: var(--primary-background-color)
+  # HA 2026.11 table toolbars and group headers.
+  ha-dialog-surface-background: "rgba(20, 26, 50, 0.20)" # Light footer over the dialog surface
+  ha-panel-toolbar-background: "rgba(20, 26, 50, 0.29)"
+  ha-data-table-background: "rgba(20, 26, 50, 0.29)" # Avoid double-dark table layers
+  ### Switches ###
+  switch-unchecked-button-color: var(--divider-color)
+  switch-unchecked-track-color: var(--divider-color)
+  ### Inputs ###
+  input-fill-color: "rgba(0, 0, 0, 0.5)"
+  input-label-ink-color: var(--primary-color)
+  input-ink-color: var(--primary-color)
+  input-disabled-fill-color: "rgba(0, 0, 0, 0.33)"
+  input-disabled-ink-color: var(--disabled-primary-color)
+  ### Weather Icons ###
+  weather-icon-clear-night: url("/local/icons/clear-night.svg")
+  weather-icon-cloudy: url("/local/icons/cloudy.svg")
+  weather-icon-fog: url("/local/icons/fog.svg")
+  weather-icon-lightning: url("/local/icons/lightning.svg")
+  weather-icon-lightning-rainy: url("/local/icons/lightning-rainy.svg")
+  weather-icon-partlycloudy: url("/local/icons/partlycloudy.svg")
+  weather-icon-pouring: url("/local/icons/pouring.svg")
+  weather-icon-rainy: url("/local/icons/rainy.svg")
+  weather-icon-hail: url("/local/icons/hail.svg")
+  weather-icon-snowy: url("/local/icons/snowy.svg")
+  weather-icon-snowy-rainy: url("/local/icons/snowy-rainy.svg")
+  weather-icon-sunny: url("/local/icons/sunny.svg")
+  weather-icon-windy: url("/local/icons/windy.svg")
+  weather-icon-windy-variant: url("/local/icons/windy-variant.svg")
+  weather-icon-exceptional: url("/local/icons/exceptional.svg")
+  ### Additions to original ###
+  ha-color-on-neutral-normal: var(--dark-primary-color)
+  wa-color-text-normal: var(--primary-text-color)
+  disabled-primary-color: "#007AFF54"
+  mdc-theme-surface: "rgba(0, 0, 0, 0.5)"
+  ### Edit Mode transparency ###
+  app-header-edit-background-color: var(--app-header-background-color)
+  ### Additions for 04.2026 ###
+  wa-color-surface-default: "var(--app-header-background-color)" # Dropdown/popover surface
+  wa-color-surface-raised: "var(--app-header-background-color)" # Dropdown list surface
+  ha-color-form-background: "var(--app-header-background-color)"
+  ha-color-form-background-hover: "var(--app-header-background-color)"
+  ha-color-form-background-disabled: "rgba(37, 37, 37, 0.5)"
+  button-color-fill-normal-active: "rgba(70, 90, 99, 0.5)"
+  button-color-fill-normal-hover: "rgba(70, 115, 127, 0.5)"
+  ha-color-fill-primary-normal-active: "rgba(70, 90, 99, 0.5)"
+  ha-color-fill-primary-normal-hover: "rgba(70, 115, 127, 0.5)"
+  wa-color-fill-loud: "rgba(70, 80, 125, 0.5)"
+  wa-color-fill-normal: "rgba(70, 90, 99, 0.5)"
+  wa-color-fill-quiet: "rgba(70, 90, 99, 0.5)"
+  wa-color-brand-fill-loud: "rgba(70, 80, 125, 0.5)"
+  wa-color-brand-fill-normal: "rgba(70, 90, 99, 0.5)"
+  wa-color-brand-fill-quiet: "rgba(70, 90, 99, 0.5)"
+  ### Liquid Glass ###
+  liquid-glass-enabled: "1"
+  liquid-glass-mobile: "1"
+  liquid-glass-strength: "125"
+  liquid-glass-bevel: "64"
+  liquid-glass-blur: "1"
+  liquid-glass-frost: "0.1"
+  liquid-glass-profile: "lens"
+  liquid-glass-background: "linear-gradient(135deg,rgba(255,255,255,.08),rgba(16,12,42,.22))"
+  liquid-glass-shadow: "inset 0 1px 0 rgba(255,255,255,.48),inset 1px 0 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(180,165,240,.22),0 12px 30px rgba(0,0,0,.24)"
+  liquid-glass-sidebar: "1"
+  liquid-glass-sidebar-strength: "125"
+  liquid-glass-sidebar-bevel: "64"
+  liquid-glass-sidebar-blur: "1"
+  liquid-glass-sidebar-radius: "22px"
+  liquid-glass-sidebar-background: "linear-gradient(135deg,rgba(255,255,255,.14),rgba(16,12,42,.16))"
+  liquid-glass-sidebar-shadow: "inset 0 1px 0 rgba(255,255,255,.6),inset 1px 0 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(190,185,255,.28),0 3px 8px rgba(0,0,0,.18)"
+  liquid-glass-dialogs: "1"
+
+  # Fixes text solor of selection context menus and the darker cards inside settings menu.
+  uix-top-app-bar-fixed: |
+    ::slotted(.content) {
+      background: var(--ha-card-background) !important;
+      --mdc-text-field-fill-color: var(--input-disabled-fill-color) !important;
+    }
+    ::slotted(ha-config-section) {
+      --card-background-color: transparent !important;
+    }
+    :host {
+        --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+    }
+  # Fix for too bright top bar in Developer Tools
+  uix-developer-tools: |
+    :host {
+        --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+    }
+  # Background in the profile page needs love, too.
+  uix-profile-yaml: |
+    .: |
+      ha-profile-section-general > * {
+          background-color: unset !important;
+          --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+          --sidebar-background-color: rgba(20, 26, 50, 0.5) !important;
+        }
+    "* $": |
+      hass-tabs-subpage, hass-subpage {
+        background-color: unset !important;
+        --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+        --sidebar-background-color: rgba(20, 26, 50, 0.5) !important;
+      }
+  # Individual glass pills when the module is active, original card fill as fallback.
+  uix-sidebar: |
+    :is(paper-icon-item[role=option], paper-icon-item[aria-role=option], ha-md-list-item, ha-list-item-button):not([data-ha-liquid-glass="sidebar"]) {
+      background: var(--ha-card-background) !important;
+    }
+    :host {
+      --sidebar-background-color: transparent !important;
+      --sidebar-menu-button-background-color: var(--app-header-background-color) !important;
+    }
+    /* Match the top bar while keeping the sidebar behind the glass pills transparent. */
+    .menu {
+      background: var(--app-header-background-color) !important;
+    }
+    [data-ha-liquid-glass="sidebar"].selected::before {
+      border-radius: inherit !important;
+    }
+  # Removes the extra darkness in the background of the settings menu deeper levels and fixes the too bright top bar.
+  uix-config-yaml: |
+    .: |
+      ha-config-apps > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+        --sidebar-background-color: rgba(20, 26, 50, 0.5) !important;
+      }
+      ha-config-cloud > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+        --sidebar-background-color: rgba(20, 26, 50, 0.5) !important;
+      }
+      ha-config-integrations > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+        --sidebar-background-color: rgba(20, 26, 50, 0.5) !important;
+      }
+      ha-config-areas > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+        --sidebar-background-color: rgba(20, 26, 50, 0.5) !important;
+      }
+      ha-config-voice-assistants > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+        --sidebar-background-color: rgba(20, 26, 50, 0.5) !important;
+      }
+      ha-config-person > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+        --sidebar-background-color: rgba(20, 26, 50, 0.5) !important;
+      }
+    "* $": |
+      ha-config-section {
+        --card-background-color: none; /* used by     --md-sys-color-surface */
+      }
+      hass-tabs-subpage, hass-subpage {
+        background-color: unset !important;
+        --app-header-background-color: rgba(20, 26, 50, 0.5) !important;
+        --sidebar-background-color: rgba(20, 26, 50, 0.5) !important;
+      }
+      ha-sidebar {
+        background-color: unset !important;
+        mdc-theme-surface: transparent !important;
+      }
+  uix-drawer: |
+    :host aside.mdc-drawer {
+      background-color: transparent !important;
+    }

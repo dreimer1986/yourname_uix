@@ -16,20 +16,23 @@
 #   Comet Tiamat amber accent  →  #E8933A
 #   Lake Itomori teal          →  #6BC4D4
 #   Same typography and sizing
-#   Same structural token coverage (21 sections)
+#   Same structural token coverage, with UIX and animated background support
 #   Dark mode declared via `modes: dark`, so HA uses its dark fallbacks
 # ══════════════════════════════════════════════════════════════════
 
 
-Your Name. - Kataware-doki:
+Your Name. - Kataware-doki (UIX):
   # ══════════════════════════════════════════════════════════════
   # KATAWARE-DOKI
   # The split-twilight moment — the sky bruised lavender,
   # the comet burning amber across the dark indigo above Itomori.
   # ══════════════════════════════════════════════════════════════
 
+  # ── 0. UIX ────────────────────────────────────────────────────
+  uix-theme: "Your Name. - Kataware-doki (UIX)"
+
   # ── 1. Backdrop & Blur ────────────────────────────────────────
-  ha-dialog-scrim-backdrop-filter: "blur(18px)"
+  ha-dialog-scrim-backdrop-filter: "blur(5px)"
   ha-dialog-scrim-background: "rgba(6, 7, 20, 0.58)"
 
   # ── 2. Typography ─────────────────────────────────────────────
@@ -51,12 +54,13 @@ Your Name. - Kataware-doki:
   header-height: 40px
   app-header-background-color: "rgba(7, 8, 22, 0.64)"
   app-header-text-color: "#EAE6F8"
-  app-header-edit-background-color: "rgba(18, 14, 44, 0.82)"
+  app-header-edit-background-color: var(--app-header-background-color)
   app-header-edit-text-color: "#EAE6F8"
   app-header-selection-bar-color: "#B48FFF"
 
   # ── 4. Lovelace Background ────────────────────────────────────
-  lovelace-background: 'center / cover no-repeat url("/local/backgrounds/yourname.jpg") fixed'
+  lovelace-background: transparent
+  ha-panel-background: transparent # HA 2026.11+: panel layer above animated backgrounds
 
   # ── 5. Global Color Tokens ────────────────────────────────────
   primary-color: "#B48FFF"
@@ -71,7 +75,7 @@ Your Name. - Kataware-doki:
   info-color: "#7AACF0"
 
   # ── 6. Backgrounds ────────────────────────────────────────────
-  primary-background-color: "#0A0B1E"
+  primary-background-color: var(--app-header-background-color)
   secondary-background-color: "#0E1030"
   rgb-primary-background-color: "10, 11, 30"
   rgb-secondary-background-color: "14, 16, 48"
@@ -92,12 +96,13 @@ Your Name. - Kataware-doki:
   markdown-code-background-color: "rgba(10, 8, 26, 0.72)"
 
   # ── 9. Sidebar ────────────────────────────────────────────────
-  sidebar-background-color: "rgba(8, 8, 22, 0.62)"
+  sidebar-background-color: transparent
   sidebar-icon-color: "#70629E"
   sidebar-text-color: "#BCB2DE"
   sidebar-selected-background-color: "rgba(180, 143, 255, 0.16)"
   sidebar-selected-icon-color: "#CEBFFF"
   sidebar-selected-text-color: "#EAE6F8"
+  sidebar-menu-button-background-color: var(--app-header-background-color)
 
   # ── 10. Cards ─────────────────────────────────────────────────
   ha-card-border-radius: "16px"
@@ -106,7 +111,7 @@ Your Name. - Kataware-doki:
   ha-card-border-color: "rgba(180, 143, 255, 0.11)"
   ha-card-border-width: "1px"
   ha-card-header-color: "var(--primary-text-color)"
-  card-background-color: "rgba(16, 12, 42, 0.50)"
+  card-background-color: var(--ha-card-background)
   paper-card-background-color: "rgba(16, 12, 42, 0.50)"
   paper-card-header-color: "var(--primary-text-color)"
   paper-listbox-background-color: "rgba(8, 8, 22, 0.75)"
@@ -140,7 +145,7 @@ Your Name. - Kataware-doki:
   mdc-theme-secondary: "var(--accent-color)"
   mdc-theme-on-primary: "#FFFFFF"
   mdc-theme-on-secondary: "#0A0B1E"
-  mdc-theme-surface: "rgba(16, 12, 42, 0.80)"
+  mdc-theme-surface: "rgba(16, 12, 42, 0.80)" # "rgba(0, 0, 0, 0.5)"
   mdc-theme-background: "var(--primary-background-color)"
   mdc-theme-error: "var(--error-color)"
 
@@ -209,7 +214,8 @@ Your Name. - Kataware-doki:
   energy-non-fossil-color: "#64C9A0"
 
   # ── 19. Modern HA Color API ───────────────────────────────────
-  wa-color-surface-default: "#07081C"
+  wa-color-surface-default: "var(--app-header-background-color)" # Dropdown/popover surface
+  wa-color-surface-raised: "var(--app-header-background-color)" # Dropdown list surface
   ha-color-fill-primary-quiet-resting: "rgba(180, 143, 255, 0.16)"
   ha-color-fill-primary-quiet-hover: "rgba(180, 143, 255, 0.26)"
   ha-color-fill-primary-quiet-pressed: "rgba(180, 143, 255, 0.34)"
@@ -217,7 +223,13 @@ Your Name. - Kataware-doki:
   ha-color-fill-neutral-normal-hover: "#201A4A"
   ha-color-fill-neutral-quiet-resting: "rgba(180, 143, 255, 0.06)"
   ha-color-fill-neutral-quiet-hover: "rgba(180, 143, 255, 0.12)"
-  ha-color-form-background-hover: "#130F35"
+  # HA 2026.11 picker fields and table toolbars use these modern tokens.
+  ha-color-form-background: "var(--app-header-background-color)"
+  ha-color-form-background-hover: "var(--app-header-background-color)"
+  ha-color-form-background-disabled: "rgba(7, 8, 22, 0.38)"
+  ha-dialog-surface-background: "rgba(7, 8, 22, 0.20)" # Light footer over the dialog surface
+  ha-panel-toolbar-background: "rgba(7, 8, 22, 0.40)"
+  ha-data-table-background: "rgba(7, 8, 22, 0.40)" # Avoid double-dark table layers
   ha-color-border-neutral-quiet: "var(--divider-color)"
   ha-color-border-neutral-default: "rgba(180, 143, 255, 0.22)"
   wa-color-surface-border: "var(--divider-color)"
@@ -263,8 +275,181 @@ Your Name. - Kataware-doki:
       ha-color-neutral-90: "#E9E3F6"
       ha-color-neutral-95: "#F5F1FF"
 
+  # ── 22. Weather Icons ─────────────────────────────────────────
+  weather-icon-clear-night: url("/local/icons/clear-night.svg")
+  weather-icon-cloudy: url("/local/icons/cloudy.svg")
+  weather-icon-fog: url("/local/icons/fog.svg")
+  weather-icon-lightning: url("/local/icons/lightning.svg")
+  weather-icon-lightning-rainy: url("/local/icons/lightning-rainy.svg")
+  weather-icon-partlycloudy: url("/local/icons/partlycloudy.svg")
+  weather-icon-pouring: url("/local/icons/pouring.svg")
+  weather-icon-rainy: url("/local/icons/rainy.svg")
+  weather-icon-hail: url("/local/icons/hail.svg")
+  weather-icon-snowy: url("/local/icons/snowy.svg")
+  weather-icon-snowy-rainy: url("/local/icons/snowy-rainy.svg")
+  weather-icon-sunny: url("/local/icons/sunny.svg")
+  weather-icon-windy: url("/local/icons/windy.svg")
+  weather-icon-windy-variant: url("/local/icons/windy-variant.svg")
+  weather-icon-exceptional: url("/local/icons/exceptional.svg")
 
-Your Name. - Tiamat:
+  # ── 23. Additions for 04.2026 ─────────────────────────────────
+  ## Red Color ##
+  ha-color-red-95: "rgba(42, 4, 11, 0.5)"
+  ha-color-red-90: "rgba(62, 9, 19, 0.5)"
+  ha-color-red-80: "rgba(99, 19, 35, 0.5)"
+  ha-color-red-70: "rgba(138, 19, 44, 0.5)"
+  ha-color-red-60: "rgba(179, 5, 50, 0.5)"
+  ha-color-red-50: "rgba(220, 49, 70, 0.5)"
+  ha-color-red-40: "rgba(243, 103, 108, 0.5)"
+  ha-color-red-30: "rgba(253, 143, 144, 0.5)"
+  ha-color-red-20: "rgba(255, 184, 182, 0.5)"
+  ha-color-red-10: "rgba(255, 222, 220, 0.5)"
+  ha-color-red-05: "rgba(255, 240, 239, 0.5)"
+  ## Orange Color ##
+  ha-color-orange-95: "rgba(40, 7, 0, 0.5)"
+  ha-color-orange-90: "rgba(59, 15, 0, 0.5)"
+  ha-color-orange-80: "rgba(94, 28, 0, 0.5)"
+  ha-color-orange-70: "rgba(126, 41, 0, 0.5)"
+  ha-color-orange-60: "rgba(157, 56, 0, 0.5)"
+  ha-color-orange-50: "rgba(201, 78, 0, 0.5)"
+  ha-color-orange-40: "rgba(243, 109, 0, 0.5)"
+  ha-color-orange-30: "rgba(255, 147, 66, 0.5)"
+  ha-color-orange-20: "rgba(255, 187, 137, 0.5)"
+  ha-color-orange-10: "rgba(255, 224, 200, 0.5)"
+  ha-color-orange-05: "rgba(255, 240, 228, 0.5)"
+  ## Green Color ##
+  ha-color-green-95: "rgba(3, 22, 8, 0.5)"
+  ha-color-green-90: "rgba(5, 35, 16, 0.5)"
+  ha-color-green-80: "rgba(10, 58, 29, 0.5)"
+  ha-color-green-70: "rgba(10, 80, 39, 0.5)"
+  ha-color-green-60: "rgba(3, 103, 48, 0.5)"
+  ha-color-green-50: "rgba(0, 136, 60, 0.5)"
+  ha-color-green-40: "rgba(0, 172, 73, 0.5)"
+  ha-color-green-30: "rgba(93, 195, 111, 0.5)"
+  ha-color-green-20: "rgba(147, 218, 152, 0.5)"
+  ha-color-green-10: "rgba(194, 242, 193, 0.5)"
+  ha-color-green-05: "rgba(227, 249, 227, 0.5)"
+
+  # ── X. Liquid Glass ────────────────────────────────────
+  liquid-glass-enabled: "1"
+  liquid-glass-mobile: "1"
+  liquid-glass-strength: "125"
+  liquid-glass-bevel: "64"
+  liquid-glass-blur: "1"
+  liquid-glass-frost: "0.1"
+  liquid-glass-profile: "lens"
+  liquid-glass-background: "linear-gradient(135deg,rgba(255,255,255,.08),rgba(16,12,42,.22))"
+  liquid-glass-shadow: "inset 0 1px 0 rgba(255,255,255,.48),inset 1px 0 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(180,165,240,.22),0 12px 30px rgba(0,0,0,.24)"
+  liquid-glass-sidebar: "1"
+  liquid-glass-sidebar-strength: "125"
+  liquid-glass-sidebar-bevel: "64"
+  liquid-glass-sidebar-blur: "1"
+  liquid-glass-sidebar-radius: "22px"
+  liquid-glass-sidebar-background: "linear-gradient(135deg,rgba(255,255,255,.14),rgba(16,12,42,.16))"
+  liquid-glass-sidebar-shadow: "inset 0 1px 0 rgba(255,255,255,.6),inset 1px 0 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(190,185,255,.28),0 3px 8px rgba(0,0,0,.18)"
+  liquid-glass-dialogs: "1"
+
+  # ── XX. UIX Tinkering ──────────────────────────────────────────
+
+  # Fixes text color of selection context menus and the darker cards inside settings menu.
+  uix-top-app-bar-fixed: |
+    ::slotted(.content) {
+      background: var(--ha-card-background) !important;
+      --mdc-text-field-fill-color: var(--input-disabled-fill-color) !important;
+    }
+    ::slotted(ha-config-section) {
+      --card-background-color: transparent !important;
+    }
+    :host {
+        --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+    }
+  # Fix for too bright top bar in Developer Tools
+  uix-developer-tools: |
+    :host {
+        --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+    }
+  # Background in the profile page needs love, too.
+  uix-profile-yaml: |
+    .: |
+      ha-profile-section-general > * {
+          background-color: unset !important;
+          --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+          --sidebar-background-color: rgba(7, 8, 22, 0.64) !important;
+        }
+    "* $": |
+      hass-tabs-subpage, hass-subpage {
+        background-color: unset !important;
+        --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+        --sidebar-background-color: rgba(7, 8, 22, 0.64) !important;
+      }
+  # Individual glass pills when the module is active, original card fill as fallback.
+  uix-sidebar: |
+    :is(paper-icon-item[role=option], paper-icon-item[aria-role=option], ha-md-list-item, ha-list-item-button):not([data-ha-liquid-glass="sidebar"]) {
+      background: var(--ha-card-background) !important;
+    }
+    :host {
+      --sidebar-background-color: transparent !important;
+      --sidebar-menu-button-background-color: var(--app-header-background-color) !important;
+    }
+    /* Match the top bar while keeping the sidebar behind the glass pills transparent. */
+    .menu {
+      background: var(--app-header-background-color) !important;
+    }
+    [data-ha-liquid-glass="sidebar"].selected::before {
+      border-radius: inherit !important;
+    }
+  # Removes the extra darkness in the background of the settings menu deeper levels and fixes the too bright top bar.
+  uix-config-yaml: |
+    .: |
+      ha-config-apps > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+        --sidebar-background-color: rgba(7, 8, 22, 0.64) !important;
+      }
+      ha-config-cloud > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+        --sidebar-background-color: rgba(7, 8, 22, 0.64) !important;
+      }
+      ha-config-integrations > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+        --sidebar-background-color: rgba(7, 8, 22, 0.64) !important;
+      }
+      ha-config-areas > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+        --sidebar-background-color: rgba(7, 8, 22, 0.64) !important;
+      }
+      ha-config-voice-assistants > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+        --sidebar-background-color: rgba(7, 8, 22, 0.64) !important;
+      }
+      ha-config-person > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+        --sidebar-background-color: rgba(7, 8, 22, 0.64) !important;
+      }
+    "* $": |
+      ha-config-section {
+        --card-background-color: none; /* used by     --md-sys-color-surface */
+      }
+      hass-tabs-subpage, hass-subpage {
+        background-color: unset !important;
+        --app-header-background-color: rgba(7, 8, 22, 0.64) !important;
+        --sidebar-background-color: rgba(7, 8, 22, 0.64) !important;
+      }
+      ha-sidebar {
+        background-color: unset !important;
+        mdc-theme-surface: transparent !important;
+      }
+  uix-drawer: |
+    :host aside.mdc-drawer {
+      background-color: transparent !important;
+    }
+
+Your Name. - Tiamat (UIX):
   # ══════════════════════════════════════════════════════════════
   # TIAMAT
   # The comet itself — its ion tail blazes electric blue across
@@ -281,9 +466,12 @@ Your Name. - Tiamat:
   # Water/teal: #6BC4D4  — Lake Itomori (shared with twin)
   # ══════════════════════════════════════════════════════════════
 
+  # ── 0. UIX ────────────────────────────────────────────────────
+  uix-theme: "Your Name. - Tiamat (UIX)"
+
   # ── 1. Backdrop & Blur ────────────────────────────────────────
   # Scrim: midnight navy — the sky the comet falls through
-  ha-dialog-scrim-backdrop-filter: "blur(18px)"
+  ha-dialog-scrim-backdrop-filter: "blur(5px)"
   ha-dialog-scrim-background: "rgba(4, 10, 24, 0.60)"
 
   # ── 2. Typography ─────────────────────────────────────────────
@@ -306,12 +494,13 @@ Your Name. - Tiamat:
   header-height: 40px
   app-header-background-color: "rgba(5, 10, 22, 0.66)"
   app-header-text-color: "#E8F4FF"
-  app-header-edit-background-color: "rgba(8, 18, 42, 0.84)"
+  app-header-edit-background-color: var(--app-header-background-color)
   app-header-edit-text-color: "#E8F4FF"
   app-header-selection-bar-color: "#3BBCFF"
 
   # ── 4. Lovelace Background ────────────────────────────────────
-  lovelace-background: 'center / cover no-repeat url("/local/backgrounds/yourname.jpg") fixed'
+  lovelace-background: transparent
+  ha-panel-background: transparent # HA 2026.11+: panel layer above animated backgrounds
 
   # ── 5. Global Color Tokens ────────────────────────────────────
   # Electric blue primary — vivid, cold, luminous
@@ -330,7 +519,7 @@ Your Name. - Tiamat:
 
   # ── 6. Backgrounds ────────────────────────────────────────────
   # Deep navy — not black, unmistakably blue when cards sit on it
-  primary-background-color: "#07101E"
+  primary-background-color: var(--app-header-background-color)
   secondary-background-color: "#0B1628"
   rgb-primary-background-color: "7, 16, 30"
   rgb-secondary-background-color: "11, 22, 40"
@@ -354,12 +543,13 @@ Your Name. - Tiamat:
 
   # ── 9. Sidebar ────────────────────────────────────────────────
   # Navy frosted panel — a cold glass wall open to the night
-  sidebar-background-color: "rgba(6, 12, 26, 0.64)"
+  sidebar-background-color: transparent
   sidebar-icon-color: "#376E96"
   sidebar-text-color: "#90C4E0"
   sidebar-selected-background-color: "rgba(59, 188, 255, 0.14)"
   sidebar-selected-icon-color: "#7DD4FF"
   sidebar-selected-text-color: "#E8F4FF"
+  sidebar-menu-button-background-color: var(--app-header-background-color)
 
   # ── 10. Cards ─────────────────────────────────────────────────
   # Navy-blue frosted glass — deeper and cooler than Kataware-doki
@@ -369,7 +559,7 @@ Your Name. - Tiamat:
   ha-card-border-color: "rgba(59, 188, 255, 0.11)"
   ha-card-border-width: "1px"
   ha-card-header-color: "var(--primary-text-color)"
-  card-background-color: "rgba(8, 20, 44, 0.52)"
+  card-background-color: var(--ha-card-background)
   paper-card-background-color: "rgba(8, 20, 44, 0.52)"
   paper-card-header-color: "var(--primary-text-color)"
   paper-listbox-background-color: "rgba(5, 12, 28, 0.78)"
@@ -403,7 +593,7 @@ Your Name. - Tiamat:
   mdc-theme-secondary: "var(--accent-color)"
   mdc-theme-on-primary: "#07101E"
   mdc-theme-on-secondary: "#07101E"
-  mdc-theme-surface: "rgba(8, 20, 44, 0.82)"
+  mdc-theme-surface: "rgba(8, 20, 44, 0.82)" # "rgba(0, 0, 0, 0.5)"
   mdc-theme-background: "var(--primary-background-color)"
   mdc-theme-error: "var(--error-color)"
 
@@ -478,7 +668,8 @@ Your Name. - Tiamat:
 
   # ── 19. Modern HA Color API ───────────────────────────────────
   # Blue-mapped equivalents of all ha-color-* / wa-color-* tokens
-  wa-color-surface-default: "#07101E"
+  wa-color-surface-default: "var(--app-header-background-color)" # Dropdown/popover surface
+  wa-color-surface-raised: "var(--app-header-background-color)" # Dropdown list surface
   ha-color-fill-primary-quiet-resting: "rgba(59, 188, 255, 0.14)"
   ha-color-fill-primary-quiet-hover: "rgba(59, 188, 255, 0.24)"
   ha-color-fill-primary-quiet-pressed: "rgba(59, 188, 255, 0.32)"
@@ -486,7 +677,13 @@ Your Name. - Tiamat:
   ha-color-fill-neutral-normal-hover: "#142840"
   ha-color-fill-neutral-quiet-resting: "rgba(59, 188, 255, 0.06)"
   ha-color-fill-neutral-quiet-hover: "rgba(59, 188, 255, 0.11)"
-  ha-color-form-background-hover: "#0A1C32"
+  # HA 2026.11 picker fields and table toolbars use these modern tokens.
+  ha-color-form-background: "var(--app-header-background-color)"
+  ha-color-form-background-hover: "var(--app-header-background-color)"
+  ha-color-form-background-disabled: "rgba(5, 10, 22, 0.38)"
+  ha-dialog-surface-background: "rgba(5, 10, 22, 0.20)" # Light footer over the dialog surface
+  ha-panel-toolbar-background: "rgba(5, 10, 22, 0.40)"
+  ha-data-table-background: "rgba(5, 10, 22, 0.40)" # Avoid double-dark table layers
   ha-color-border-neutral-quiet: "var(--divider-color)"
   ha-color-border-neutral-default: "rgba(59, 188, 255, 0.22)"
   wa-color-surface-border: "var(--divider-color)"
@@ -528,3 +725,177 @@ Your Name. - Tiamat:
       ha-color-neutral-80: "#BACFDD"
       ha-color-neutral-90: "#D4E9F7"
       ha-color-neutral-95: "#E7F5FF"
+
+  # ── 22. Weather Icons ─────────────────────────────────────────
+  weather-icon-clear-night: url("/local/icons/clear-night.svg")
+  weather-icon-cloudy: url("/local/icons/cloudy.svg")
+  weather-icon-fog: url("/local/icons/fog.svg")
+  weather-icon-lightning: url("/local/icons/lightning.svg")
+  weather-icon-lightning-rainy: url("/local/icons/lightning-rainy.svg")
+  weather-icon-partlycloudy: url("/local/icons/partlycloudy.svg")
+  weather-icon-pouring: url("/local/icons/pouring.svg")
+  weather-icon-rainy: url("/local/icons/rainy.svg")
+  weather-icon-hail: url("/local/icons/hail.svg")
+  weather-icon-snowy: url("/local/icons/snowy.svg")
+  weather-icon-snowy-rainy: url("/local/icons/snowy-rainy.svg")
+  weather-icon-sunny: url("/local/icons/sunny.svg")
+  weather-icon-windy: url("/local/icons/windy.svg")
+  weather-icon-windy-variant: url("/local/icons/windy-variant.svg")
+  weather-icon-exceptional: url("/local/icons/exceptional.svg")
+
+  # ── 23. Additions for 04.2026 ─────────────────────────────────
+  ## Red Color ##
+  ha-color-red-95: "rgba(42, 4, 11, 0.5)"
+  ha-color-red-90: "rgba(62, 9, 19, 0.5)"
+  ha-color-red-80: "rgba(99, 19, 35, 0.5)"
+  ha-color-red-70: "rgba(138, 19, 44, 0.5)"
+  ha-color-red-60: "rgba(179, 5, 50, 0.5)"
+  ha-color-red-50: "rgba(220, 49, 70, 0.5)"
+  ha-color-red-40: "rgba(243, 103, 108, 0.5)"
+  ha-color-red-30: "rgba(253, 143, 144, 0.5)"
+  ha-color-red-20: "rgba(255, 184, 182, 0.5)"
+  ha-color-red-10: "rgba(255, 222, 220, 0.5)"
+  ha-color-red-05: "rgba(255, 240, 239, 0.5)"
+  ## Orange Color ##
+  ha-color-orange-95: "rgba(40, 7, 0, 0.5)"
+  ha-color-orange-90: "rgba(59, 15, 0, 0.5)"
+  ha-color-orange-80: "rgba(94, 28, 0, 0.5)"
+  ha-color-orange-70: "rgba(126, 41, 0, 0.5)"
+  ha-color-orange-60: "rgba(157, 56, 0, 0.5)"
+  ha-color-orange-50: "rgba(201, 78, 0, 0.5)"
+  ha-color-orange-40: "rgba(243, 109, 0, 0.5)"
+  ha-color-orange-30: "rgba(255, 147, 66, 0.5)"
+  ha-color-orange-20: "rgba(255, 187, 137, 0.5)"
+  ha-color-orange-10: "rgba(255, 224, 200, 0.5)"
+  ha-color-orange-05: "rgba(255, 240, 228, 0.5)"
+  ## Green Color ##
+  ha-color-green-95: "rgba(3, 22, 8, 0.5)"
+  ha-color-green-90: "rgba(5, 35, 16, 0.5)"
+  ha-color-green-80: "rgba(10, 58, 29, 0.5)"
+  ha-color-green-70: "rgba(10, 80, 39, 0.5)"
+  ha-color-green-60: "rgba(3, 103, 48, 0.5)"
+  ha-color-green-50: "rgba(0, 136, 60, 0.5)"
+  ha-color-green-40: "rgba(0, 172, 73, 0.5)"
+  ha-color-green-30: "rgba(93, 195, 111, 0.5)"
+  ha-color-green-20: "rgba(147, 218, 152, 0.5)"
+  ha-color-green-10: "rgba(194, 242, 193, 0.5)"
+  ha-color-green-05: "rgba(227, 249, 227, 0.5)"
+
+  # ── X. Liquid Glass ────────────────────────────────────
+  liquid-glass-enabled: "1"
+  liquid-glass-mobile: "1"
+  liquid-glass-strength: "125"
+  liquid-glass-bevel: "64"
+  liquid-glass-blur: "1"
+  liquid-glass-frost: "0.1"
+  liquid-glass-profile: "lens"
+  liquid-glass-background: "linear-gradient(135deg,rgba(255,255,255,.08),rgba(16,12,42,.22))"
+  liquid-glass-shadow: "inset 0 1px 0 rgba(255,255,255,.48),inset 1px 0 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(180,165,240,.22),0 12px 30px rgba(0,0,0,.24)"
+  liquid-glass-sidebar: "1"
+  liquid-glass-sidebar-strength: "125"
+  liquid-glass-sidebar-bevel: "64"
+  liquid-glass-sidebar-blur: "1"
+  liquid-glass-sidebar-radius: "22px"
+  liquid-glass-sidebar-background: "linear-gradient(135deg,rgba(255,255,255,.14),rgba(16,12,42,.16))"
+  liquid-glass-sidebar-shadow: "inset 0 1px 0 rgba(255,255,255,.6),inset 1px 0 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(190,185,255,.28),0 3px 8px rgba(0,0,0,.18)"
+  liquid-glass-dialogs: "1"
+
+  # ── XX. UIX Tinkering ──────────────────────────────────────────
+
+  # Fixes text color of selection context menus and the darker cards inside settings menu.
+  uix-top-app-bar-fixed: |
+    ::slotted(.content) {
+      background: var(--ha-card-background) !important;
+      --mdc-text-field-fill-color: var(--input-disabled-fill-color) !important;
+    }
+    ::slotted(ha-config-section) {
+      --card-background-color: transparent !important;
+    }
+    :host {
+        --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+    }
+  # Fix for too bright top bar in Developer Tools
+  uix-developer-tools: |
+    :host {
+        --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+    }
+  # Background in the profile page needs love, too.
+  uix-profile-yaml: |
+    .: |
+      ha-profile-section-general > * {
+          background-color: unset !important;
+          --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+          --sidebar-background-color: rgba(5, 10, 22, 0.66) !important;
+        }
+    "* $": |
+      hass-tabs-subpage, hass-subpage {
+        background-color: unset !important;
+        --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+        --sidebar-background-color: rgba(5, 10, 22, 0.66) !important;
+      }
+  # Individual glass pills when the module is active, original card fill as fallback.
+  uix-sidebar: |
+    :is(paper-icon-item[role=option], paper-icon-item[aria-role=option], ha-md-list-item, ha-list-item-button):not([data-ha-liquid-glass="sidebar"]) {
+      background: var(--ha-card-background) !important;
+    }
+    :host {
+      --sidebar-background-color: transparent !important;
+      --sidebar-menu-button-background-color: var(--app-header-background-color) !important;
+    }
+    /* Match the top bar while keeping the sidebar behind the glass pills transparent. */
+    .menu {
+      background: var(--app-header-background-color) !important;
+    }
+    [data-ha-liquid-glass="sidebar"].selected::before {
+      border-radius: inherit !important;
+    }
+  # Removes the extra darkness in the background of the settings menu deeper levels and fixes the too bright top bar.
+  uix-config-yaml: |
+    .: |
+      ha-config-apps > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+        --sidebar-background-color: rgba(5, 10, 22, 0.66) !important;
+      }
+      ha-config-cloud > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+        --sidebar-background-color: rgba(5, 10, 22, 0.66) !important;
+      }
+      ha-config-integrations > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+        --sidebar-background-color: rgba(5, 10, 22, 0.66) !important;
+      }
+      ha-config-areas > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+        --sidebar-background-color: rgba(5, 10, 22, 0.66) !important;
+      }
+      ha-config-voice-assistants > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+        --sidebar-background-color: rgba(5, 10, 22, 0.66) !important;
+      }
+      ha-config-person > * {
+        background-color: unset !important;
+        --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+        --sidebar-background-color: rgba(5, 10, 22, 0.66) !important;
+      }
+    "* $": |
+      ha-config-section {
+        --card-background-color: none; /* used by     --md-sys-color-surface */
+      }
+      hass-tabs-subpage, hass-subpage {
+        background-color: unset !important;
+        --app-header-background-color: rgba(5, 10, 22, 0.66) !important;
+        --sidebar-background-color: rgba(5, 10, 22, 0.66) !important;
+      }
+      ha-sidebar {
+        background-color: unset !important;
+        mdc-theme-surface: transparent !important;
+      }
+  uix-drawer: |
+    :host aside.mdc-drawer {
+      background-color: transparent !important;
+    }
